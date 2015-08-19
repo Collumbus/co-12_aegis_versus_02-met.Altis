@@ -47,7 +47,7 @@ class Mission
 	randomSeed=2596867;
 	class Intel
 	{
-		briefingName="PMCVCRO-03: Afflamus";
+		briefingName="AEGISCRO-02: Metamorphoses";
 		overviewText="PMC Versus destroys the only ouzo distillery on Altis.";
 		resistanceWest=0;
 		startWeather=0.84999996;
@@ -216,13 +216,13 @@ class Mission
 					special="NONE";
 					id=6;
 					side="WEST";
-					vehicle="B_G_Soldier_M_F";
+					vehicle="B_G_Soldier_GL_F";
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.60201967;
 					text="perditus5";
 					init="this setVariable [""BIS_enableRandomization"", false]; perditussquad = group this; this setgroupid [""Perditus""]; ";
-					description="Perditus 5 (marksman)";
+					description="Perditus 5 (granadier)";
 				};
 				class Item5
 				{
@@ -319,7 +319,7 @@ class Mission
 					skill=0.60000002;
 					text="derelictus5";
 					init="this setVariable [""BIS_enableRandomization"", false]; derelictussquad = group this; this setgroupid [""Derelictus""];";
-					description="Derelictus 5 (marksman)";
+					description="Derelictus 5 (granadier)";
 				};
 				class Item5
 				{
