@@ -1,3 +1,140 @@
+class CfgFunctions
+{
+	class aegis
+	{
+		class initialization
+		{
+			class clientInit {file = "aegis\functions\clientInit.sqf";};
+			class serverInit {file = "aegis\functions\serverInit.sqf";preInit = 1;};
+			class localFunctions {file = "aegis\functions\localFunctions.sqf";};
+			class disconnectManager {file = "aegis\functions\disconnectManager.sqf";};
+			class getPlayerById {file = "aegis\functions\getPlayerById.sqf";};
+		};
+		class transactions
+		{
+			class transactionManager {file = "aegis\functions\transactionManager.sqf";};
+			class makePayment {file = "aegis\functions\makePayment.sqf";};
+		}
+		class gameplay
+		{
+			class respawnManager {file = "aegis\functions\respawnManager.sqf";};
+			class clearInventory {file = "aegis\functions\clearInventory.sqf";};
+			class restoreInventory {file = "aegis\functions\restoreInventory.sqf";};
+			class showCivKiller {file = "aegis\functions\showCivKiller.sqf";};
+			class checkCivEH {file = "aegis\functions\checkCivEH.sqf";};
+		}
+	};
+	//A3G CfgFunctions
+	class A3G_Loadout {
+
+	  class Arsenal {
+	    file = "aegis\a3g-loadout\functions\arsenal";
+	    class ReplaceLinkedItems {};
+	    class ReplaceWeapons {};
+	  };
+
+	  class Attachments {
+	    file = "aegis\a3g-loadout\functions\attachments";
+	    class ReplacePrimaryAttachments {};
+	    class ReplaceSecondaryAttachments {};
+	    class ReplaceHandgunAttachments {};
+	  };
+
+	  class Containers {
+	    file = "aegis\a3g-loadout\functions\containers";
+	    class ReplaceUniform {};
+	    class ReplaceBackpack {};
+	    class ReplaceVest {};
+	  };
+
+	  class General {
+	    file = "aegis\a3g-loadout\functions\general";
+	    class AddItems {};
+	    class AddMagazines {};
+	    class AddItemsToUniform {};
+	    class AddItemsToVest {};
+	    class AddItemsToBackpack {};
+	    class ReplaceItems {};
+	    class ReplaceMagazines {};
+	  };
+
+	  class Init {
+	    file = "aegis\a3g-loadout\functions\init";
+	    class ApplyLoadout {
+	      postInit = 1;
+	    };
+	    class AssignRespawn {
+	      postInit = 1;
+	    };
+	    class DoLoadout {};
+	    class IsConfigEntry {};
+	  };
+
+	  class LinkedItems {
+	    file = "aegis\a3g-loadout\functions\linkedItems";
+	    class ReplaceBinoculars {};
+	    class ReplaceCompass {};
+	    class ReplaceGoggles {};
+	    class ReplaceGPS {};
+	    class ReplaceHeadgear {};
+	    class ReplaceMap {};
+	    class ReplaceNVGoggles {};
+	    class ReplaceWatch {};
+	  };
+
+	  class Weapons {
+	    file = "aegis\a3g-loadout\functions\weapons";
+	    class ReplaceHandgunWeapon {};
+	    class ReplacePrimaryWeapon {};
+	    class ReplaceSecondaryWeapon {};
+	  };
+
+	};
+};
+
+class cfgNotifications {
+  class CivilDeath {
+  title = "%1";
+  iconPicture = "\a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa";
+  description = "%2";
+  duration = 10;
+  };
+
+	class Transaction {
+  title = "%1";
+  iconPicture = "aegis\ui\pagamento.paa";
+  description = "%2";
+  duration = 10;
+  };
+
+	class CheckBalance {
+  title = "%1";
+  iconPicture = "aegis\ui\consulta.paa";
+  description = "%2";
+  duration = 10;
+  };
+};
+
+
+class CfgSounds
+{
+	sounds[] = {};
+	class alert
+	{
+		name = "alert";
+		sound[] = {"aegis\sounds\alert.ogg", 1, 1};
+		titles[] = {};
+	};
+	class cash
+	{
+		name = "cash";
+		sound[] = {"aegis\sounds\cash.ogg", 1, 1};
+		titles[] = {};
+	};
+};
+
+
+// Métodos do ACE3
 class ACE_Settings {
     class ace_common_forceAllSettings {
         value = 0;
@@ -345,7 +482,7 @@ class ACE_Settings {
         force = 1;
     };
     class ace_respawn_RemoveDeadBodiesDisconnected {
-        value = 1;
+        value = 0;
         typeName = "BOOL";
         force = 1;
     };
@@ -584,4 +721,65 @@ class ACE_Settings {
         typeName = "SCALAR";
         force = 1;
     };
+};
+
+
+class Params
+{
+	class AEGIS_BlankParam1
+	{
+	  title = "----------------------------------- Economia -----------------------------------";
+	  values[] = {-99999};
+	  texts[] = {""};
+	  default = -99999;
+	};
+	class AEGIS_INITIAL_MONEY
+	{
+		title = "Dinheiro inicial dado a novos jogadores";
+		texts[] = {"$1000","$3000","$5000 (Padrão)","$7000","$10000"};
+		values[] = {1000,3000,5000,7000,10000};
+		default = 5000;
+	};
+	class AEGIS_ARSENAL_ENABLE
+	{
+		title = "Ativar acesso ao ARSENAL?";
+		texts[] = {"Sim (Padrão)","Não (SpecOps)"};
+		values[] = {1,0};
+		default = 1;
+	};
+	class AEGIS_ARSENAL_COST
+	{
+	  title = "Custo de acesso ao Arsenal";
+	  texts[] = {"$200","$350 (Padrão)","$400","$550","$600","$1000"};
+	  values[] = {200,350,400,550,600,1000};
+	  default = 350;
+	};
+	class AEGIS_BlankParam2
+	{
+		title = "----------------------------------- Persistência (DB)  -----------------------------------";
+		values[] = {-99999};
+		texts[] = {""};
+		default = -99999;
+	};
+	class AEGIS_PLAYER_POSITION
+	{
+		title = "Restaurar POSIÇÃO do jogador na conexão?";
+		texts[] = {"Sim (Padrão)","Não (SpecOps)"};
+		values[] = {1,0};
+		default = 1;
+	};
+	class AEGIS_LOAD_INVENTORY
+	{
+		title = "Restaurar INVENTÁRIO do jogador na conexão?";
+		texts[] = {"Sim (Padrão)","Não (SpecOps)"};
+		values[] = {1,0};
+		default = 1;
+	};
+	class AEGIS_CLEAR_INVENTORY
+	{
+		title = "Limpar inventário de novos jogadores?";
+		texts[] = {"Sim (Padrão)","Não (SpecOps)"};
+		values[] = {1,0};
+		default = 1;
+	};
 };

@@ -2,12 +2,14 @@ author = "Fuiba - Editada por Collumbus";
 
 // Overview:
 overviewText = "PMC AEGIS neutralizes the only ouzo distillery on Altis.";
-overviewPicture = "overview_03.paa"; // Mission screenshot
+overviewPicture = "images\overview_03.paa"; // Mission screenshot
 
 // Loading:
 onLoadName = "Metamorphoses"; // Mission name
 onLoadMission = "Eliminate the distillery foreman and destroy the ouzo containers.";
-loadScreen = "AEGISlogo.paa"; // Loading screen pip
+loadScreen = "images\AEGISlogo.paa"; // Loading screen pip
+enableDebugConsole = 1;
+respawn            = 4;
 
 doneKeys[] = {"co10_pmcvcro03"};
 
@@ -15,13 +17,8 @@ minScore=0;
 avgScore=1000;
 maxScore=14000;
 
-//ACE Config
-#include "aegis_ace_settings.hpp"
-
-//Loadouts
-class CfgFunctions {
-  #include "modules\a3g-loadout\CfgFunctions.hpp"
-};
+//AEGIS Config
+#include "aegis\functions.hpp"
 
 class CfgLoadouts {
 //Team Lider
@@ -82,7 +79,7 @@ class CfgWorlds
 
 class Header
 {
-	gameType = Coop;
+	gameType = RPG;
 	minPlayers = 1;
 	maxPlayers = 12;
 };

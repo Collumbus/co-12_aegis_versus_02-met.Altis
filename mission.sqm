@@ -50,7 +50,7 @@ class Mission
 		briefingName="AEGISCRO-02: Metamorphoses";
 		overviewText="PMC Versus destroys the only ouzo distillery on Altis.";
 		resistanceWest=0;
-		startWeather=0.84999996;
+		startWeather=0.83999997;
 		startFog=0.48999998;
 		startWind=0.22;
 		startRain=1;
@@ -62,14 +62,13 @@ class Mission
 		forecastRain=1;
 		forecastGust=0.59999996;
 		rainForced=1;
-		lightningsForced=1;
 		wavesForced=1;
 		windForced=1;
 		year=2015;
 		month=11;
 		day=1;
-		hour=6;
-		minute=10;
+		hour=5;
+		minute=45;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
 	};
@@ -1622,7 +1621,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=12;
+		items=13;
 		class Item0
 		{
 			position[]={5383.8838,122.66552,18041.617};
@@ -1819,6 +1818,27 @@ class Mission
 			expActiv="[derelictus1, derelictus2, derelictus3, derelictus4, derelictus5] join perditus1; publicVariable ""join_order""; perditus1 sideChat ""Derelictus. Perditus actual. I'm taking command of Derelictus. Out.""";
 			class Effects
 			{
+			};
+		};
+		class Item12
+		{
+			position[]={6413.9438,203.46924,18247.24};
+			a=0;
+			b=0;
+			activationBy="LOGIC";
+			timeoutMin=10;
+			timeoutMid=10;
+			timeoutMax=10;
+			interruptable=1;
+			age="UNKNOWN";
+			text="Cash";
+			name="Cash";
+			expCond="obj1 == 1 AND obj2 == 1 AND obj3 == 1;";
+			expActiv="72000 call aegis_fnc_makePayment;";
+			class Effects
+			{
+				titleType="TEXT";
+				title="Mission accoplished.";
 			};
 		};
 	};
